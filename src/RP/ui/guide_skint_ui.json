@@ -4,6 +4,7 @@
   "form": {
     "type": "panel",
     "$body|default": "",
+    "size": ["100%", "100%"],
     "controls": [
       {
         "image": {
