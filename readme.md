@@ -1,9 +1,1 @@
-This Is A Minecraft Addon Enviroment Bootstrapped With create-mc-addon.
-
-# Getting Started
-Start Of By Running The Following Command To Start Regolith:
-
-```
-npm run dev
-```
-This Will Start Regolith, Which Will Take Care Of Bundeling, Transpiling And Coppying Your Project To The Minecraft Directory. Saving The Project Will Refresh This Action.
+Add-on that adds various things from the Heart of The Universe (Сердце Вселенной) Let's play by Storytelling Team. No code/assets from the Storytelling Team's original mod was used.
