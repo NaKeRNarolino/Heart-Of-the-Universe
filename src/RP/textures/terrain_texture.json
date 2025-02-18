@@ -1,0 +1,15 @@
+{
+  "resource_pack_name": "Heart Of the Universe",
+  "num_mip_levels": 4,
+  "padding": 8,
+  "texture_name": "atlas.terrain",
+  "texture_data": {
+    "naker_hotu:guide_skint": {
+      "textures": "textures/block/guide_skint"
+    },
+
+    "naker_hotu:empty": {
+      "textures": "textures/block/empty"
+    }
+  }
+}

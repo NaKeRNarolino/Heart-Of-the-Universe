@@ -1,0 +1,39 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Heart Of the Universe",
+        "description": "Heart Of the Universe",
+        "min_engine_version": [
+            1,
+            19,
+            60
+        ],
+        "uuid": "65988d66-0f77-4b92-af18-dd708d9fa3f7",
+        "version": [
+            0,
+            0,
+            1
+        ]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "4ddc3a65-c7ae-49e0-8952-784c9f0a0009",
+            "version": [
+                0,
+                0,
+                1
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "00512319-3de3-415a-a0e0-86aee8576d21",
+            "version": [
+                0,
+                0,
+                1
+            ]
+        }
+    ]
+}

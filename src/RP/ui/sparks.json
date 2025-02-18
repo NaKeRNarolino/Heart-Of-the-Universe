@@ -1,0 +1,46 @@
+{
+  "namespace": "sparks_display",
+
+  "sparks": {
+    "type": "panel",
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "size": ["100%c", "100%c"],
+    "controls": [
+      {
+        "sparks": {
+          "type": "label",
+          "text": "#text",
+          "bindings": [
+            {
+              "binding_name": "#hud_title_text_string"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_title_text_string - 'naker_sparks')",
+              "target_property_name": "#text"
+            }
+          ],
+          "layer": 2,
+          "offset": ["14px", "-50px"]
+        }
+      },
+      {
+        "panel": {
+          "type": "image",
+          "texture": "textures/gui/spark_panel",
+          "size": ["55px", "20px"],
+          "offset": ["14px", "-50px"]
+        }
+      },
+      {
+        "icon": {
+          "type": "image",
+          "texture": "textures/gui/spark",
+          "size": ["16px", "16px"],
+          "offset": ["-3px", "-50px"]
+        }
+      }
+    ]
+  }
+}

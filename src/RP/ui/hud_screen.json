@@ -1,0 +1,27 @@
+{
+  "namespace": "hud",
+
+  "root_panel": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "sparks@sparks_display.sparks": {}
+          }
+        ]
+      }
+    ]
+  },
+
+  "hud_title_text": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "offset": [0, -19],
+    "layer": 1,
+    "alpha": "@hud.anim_title_text_alpha_in",
+    "propagate_alpha": true,
+    "controls": []
+  }
+}
