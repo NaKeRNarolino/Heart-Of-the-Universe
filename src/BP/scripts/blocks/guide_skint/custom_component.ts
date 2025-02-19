@@ -77,6 +77,10 @@ export const GuideSkintCustomComponent: mc.BlockCustomComponent = {
     );
     const { x, y, z } = event.block.location;
     entity.addTag(namespace.namespaced(`guide_skint:{${x};${y};${z}}`));
+    entity.setDynamicProperty(
+      namespace.namespaced("guide_skint_block_location"),
+      event.block.location
+    );
     await mc.system.waitTicks(7);
     event.dimension.spawnParticle(
       namespace.namespaced("guide_skint_sparkles"),
@@ -136,7 +140,9 @@ export const GuideSkintCustomComponent: mc.BlockCustomComponent = {
     });
 
     if (locMatch == undefined) {
-      player?.sendMessage("[!] Путеводный Скинт не активирован.");
+      player?.sendMessage(
+        "[!] Путеводный Скинт не активирован. Чтобы активировать его, добудьте его, переименуйте в название точки и установите."
+      );
       return;
     }
 

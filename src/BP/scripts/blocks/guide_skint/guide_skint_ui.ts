@@ -5,9 +5,12 @@ import { Vector3Utils } from "@minecraft/math";
 import { MassiveJSONStorage } from "../../utils/storage";
 import { GuideSkintData } from "./custom_component";
 import { SparkManager } from "../../sparks/spark_manager";
+import { PlayerUIManager } from "../../utils/player_ui_manager";
 
 export class GuideSkintManager {
   openForm(player: mc.Player, skintIdx: number) {
+    const uiManager = new PlayerUIManager(player);
+    uiManager.set(true);
     const storage = new MassiveJSONStorage(
       namespace.namespaced("guide_skint_storage")
     );
@@ -47,6 +50,7 @@ export class GuideSkintManager {
         player.inputPermissions.cameraEnabled = true;
         player.camera.clear();
         player.onScreenDisplay.resetHudElements();
+        uiManager.set(false);
         return;
       }
       if (val.selection == 2) {
@@ -72,6 +76,7 @@ export class GuideSkintManager {
           player.inputPermissions.cameraEnabled = true;
           player.onScreenDisplay.resetHudElements();
           player.camera.clear();
+          uiManager.set(false);
           return;
         }
 
@@ -85,6 +90,7 @@ export class GuideSkintManager {
         player.inputPermissions.cameraEnabled = true;
         player.onScreenDisplay.resetHudElements();
         player.camera.clear();
+        uiManager.set(false);
       }
     });
   }

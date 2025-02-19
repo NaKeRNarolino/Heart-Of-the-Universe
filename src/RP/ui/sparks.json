@@ -5,7 +5,7 @@
     "type": "panel",
     "anchor_from": "bottom_right",
     "anchor_to": "bottom_right",
-    "size": ["100%c", "100%c"],
+    "size": ["55px", "20px"],
     "controls": [
       {
         "sparks": {
@@ -22,7 +22,7 @@
             }
           ],
           "layer": 2,
-          "offset": ["14px", "-50px"]
+          "offset": ["4px", "-50px"]
         }
       },
       {
@@ -30,7 +30,7 @@
           "type": "image",
           "texture": "textures/gui/spark_panel",
           "size": ["55px", "20px"],
-          "offset": ["14px", "-50px"]
+          "offset": ["0px", "-50px"]
         }
       },
       {
@@ -38,7 +38,7 @@
           "type": "image",
           "texture": "textures/gui/spark",
           "size": ["16px", "16px"],
-          "offset": ["-3px", "-50px"]
+          "offset": ["-16px", "-50px"]
         }
       }
     ]

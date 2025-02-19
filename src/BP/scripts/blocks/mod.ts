@@ -2,6 +2,7 @@ import { namespace } from "../utils/namespace";
 import { MassiveJSONStorage } from "../utils/storage";
 import { GuideSkintData } from "./guide_skint/custom_component";
 import * as guide_skint from "./guide_skint/mod";
+import "./guide_skint/mod";
 import * as mc from "@minecraft/server";
 
 mc.world.beforeEvents.worldInitialize.subscribe((data) => {

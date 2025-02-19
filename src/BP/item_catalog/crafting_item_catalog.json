@@ -1,0 +1,19 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:crafting_items_catalog": {
+    "categories": [
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "naker_hotu:guide_skint",
+              "name": "naker_hotu:item_group"
+            },
+            "items": ["naker_hotu:guide_skint", "naker_hotu:long_rusty_sword"]
+          }
+        ]
+      }
+    ]
+  }
+}

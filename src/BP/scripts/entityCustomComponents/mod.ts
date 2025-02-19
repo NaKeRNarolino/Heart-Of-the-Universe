@@ -16,6 +16,10 @@ import {
 } from "./interfaces";
 import * as mc from "@minecraft/server";
 
+import "./player_custom_components/on_hold_sword";
+import { PlayerHoldSwordCustomComponent } from "./player_custom_components/on_hold_sword";
+import { GuideSkintEntityCustomComponent } from "../blocks/guide_skint/mod";
+
 /*
 
 TODO LIST
@@ -443,3 +447,9 @@ export class EntityCustomComponentRegistry {
     });
   }
 }
+
+///
+
+new EntityCustomComponentRegistry()
+  .registerCustomComponent(PlayerHoldSwordCustomComponent)
+  .registerCustomComponent(GuideSkintEntityCustomComponent);
