@@ -1,58 +1,38 @@
 {
-    "format_version": 2,
-    "header": {
-        "name": "Heart Of the Universe",
-        "description": "Heart Of the Universe",
-        "min_engine_version": [
-            1,
-            19,
-            60
-        ],
-        "uuid": "00512319-3de3-415a-a0e0-86aee8576d21",
-        "version": [
-            0,
-            0,
-            1
-        ]
+  "format_version": 2,
+  "header": {
+    "name": "Heart Of the Universe",
+    "description": "Heart Of the Universe",
+    "min_engine_version": [1, 19, 60],
+    "uuid": "00512319-3de3-415a-a0e0-86aee8576d21",
+    "version": [0, 1, 2]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "e87c280a-71bc-4b85-936c-4510f3ab36df",
+      "version": [0, 0, 1]
     },
-    "modules": [
-        {
-            "type": "data",
-            "uuid": "e87c280a-71bc-4b85-936c-4510f3ab36df",
-            "version": [
-                0,
-                0,
-                1
-            ]
-        },
-        {
-            "type": "script",
-            "language": "javascript",
-            "uuid": "4477d450-844c-41a1-81e7-b9e08057fa43",
-            "entry": "scripts/main.js",
-            "version": [
-                1,
-                0,
-                0
-            ]
-        }
-    ],
-    "dependencies": [
-        {
-            "uuid": "65988d66-0f77-4b92-af18-dd708d9fa3f7",
-            "version": [
-                0,
-                0,
-                1
-            ]
-        },
-        {
-            "module_name": "@minecraft/server",
-            "version": "1.18.0-beta"
-        },
-        {
-            "module_name": "@minecraft/server-ui",
-            "version": "1.4.0-beta"
-        }
-    ]
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "4477d450-844c-41a1-81e7-b9e08057fa43",
+      "entry": "scripts/main.js",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "65988d66-0f77-4b92-af18-dd708d9fa3f7",
+      "version": [0, 0, 1]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.18.0-beta"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "1.4.0-beta"
+    }
+  ]
 }
