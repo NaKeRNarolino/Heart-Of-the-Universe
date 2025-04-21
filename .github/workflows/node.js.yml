@@ -30,7 +30,7 @@ jobs:
       - name: Build
         run: npm run export
       - name: Zip build directory
-        run: zip -r build.zip build/
+        run: Compress-Archive -Path build\* -DestinationPath build.zip
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
