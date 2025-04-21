@@ -30,9 +30,14 @@ export class GuideSkintManager {
 
     form.body(skints[skintIdx].name);
     console.warn("idx", skintIdx, skints.length);
-
-    player.inputPermissions.movementEnabled = false;
-    player.inputPermissions.cameraEnabled = false;
+    player.inputPermissions.setPermissionCategory(
+      mc.InputPermissionCategory.Movement,
+      false
+    );
+    player.inputPermissions.setPermissionCategory(
+      mc.InputPermissionCategory.Camera,
+      false
+    );
     player.onScreenDisplay.hideAllExcept();
 
     player.camera.setCamera("minecraft:free", {
@@ -46,8 +51,14 @@ export class GuideSkintManager {
 
     form.show(player).then((val) => {
       if (val.canceled) {
-        player.inputPermissions.movementEnabled = true;
-        player.inputPermissions.cameraEnabled = true;
+        player.inputPermissions.setPermissionCategory(
+          mc.InputPermissionCategory.Movement,
+          true
+        );
+        player.inputPermissions.setPermissionCategory(
+          mc.InputPermissionCategory.Camera,
+          true
+        );
         player.camera.clear();
         player.onScreenDisplay.resetHudElements();
         uiManager.set(false);
@@ -72,8 +83,14 @@ export class GuideSkintManager {
               cost - sparkManager.get()
             } Спарков.`
           );
-          player.inputPermissions.movementEnabled = true;
-          player.inputPermissions.cameraEnabled = true;
+          player.inputPermissions.setPermissionCategory(
+            mc.InputPermissionCategory.Movement,
+            false
+          );
+          player.inputPermissions.setPermissionCategory(
+            mc.InputPermissionCategory.Camera,
+            false
+          );
           player.onScreenDisplay.resetHudElements();
           player.camera.clear();
           uiManager.set(false);
@@ -86,8 +103,14 @@ export class GuideSkintManager {
           namespace.namespaced("guide_skint_sparkles"),
           block!.center()
         );
-        player.inputPermissions.movementEnabled = true;
-        player.inputPermissions.cameraEnabled = true;
+        player.inputPermissions.setPermissionCategory(
+          mc.InputPermissionCategory.Movement,
+          true
+        );
+        player.inputPermissions.setPermissionCategory(
+          mc.InputPermissionCategory.Camera,
+          true
+        );
         player.onScreenDisplay.resetHudElements();
         player.camera.clear();
         uiManager.set(false);

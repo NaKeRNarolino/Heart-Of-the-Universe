@@ -3,8 +3,12 @@ import { SparkManager } from "../sparks/spark_manager";
 
 mc.system.runInterval(() => {
   for (const player of mc.world.getAllPlayers()) {
+    const health = player.getComponent("health")!;
+    const healthPercentage = Math.floor(
+      (health.currentValue / health.effectiveMax) * 100
+    );
     player.onScreenDisplay.setTitle(
-      `naker_sparks§r${new SparkManager(player).get()}`
+      `s:${new SparkManager(player).get()},${healthPercentage}`
     );
   }
 });

@@ -8,7 +8,24 @@
         "operation": "insert_front",
         "value": [
           {
-            "sparks@sparks_display.sparks": {}
+            "sparks@sparks_display.sparks": {
+              "$amount": "#x"
+            }
+          },
+          {
+            "health@hotu_bars.bar": {
+              "$fill_texture": "textures/gui/nakern_hotu/bars/health",
+              "$icon_texture": "textures/gui/nakern_hotu/bars/heart",
+              "anchor_from": "bottom_middle",
+              "anchor_to": "bottom_middle",
+              "offset": [0, "-10%"],
+              "bindings": [
+                {
+                  "binding_name": "#show_survival_ui",
+                  "binding_name_override": "#visible"
+                }
+              ]
+            }
           }
         ]
       }
@@ -23,5 +40,29 @@
     "alpha": "@hud.anim_title_text_alpha_in",
     "propagate_alpha": true,
     "controls": []
+  },
+
+  "heart_renderer": {
+    "type": "panel",
+    "size": [1, 1],
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_name": "#show_survival_ui",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "hunger_renderer": {
+    "type": "panel",
+    "size": [1, 1],
+    "layer": 1,
+    "bindings": [
+      {
+        "binding_name": "#show_survival_ui",
+        "binding_name_override": "#visible"
+      }
+    ]
   }
 }

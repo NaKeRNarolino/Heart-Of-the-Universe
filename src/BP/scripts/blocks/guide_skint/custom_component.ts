@@ -3,6 +3,7 @@ import * as ui from "@minecraft/server-ui";
 import { namespace } from "../../utils/namespace";
 import { GuideSkintManager } from "./guide_skint_ui";
 import { MassiveJSONStorage } from "../../utils/storage";
+import { MinecraftDimensionTypes } from "@minecraft/vanilla-data";
 
 export interface GuideSkintData {
   location: mc.Vector3;
@@ -42,7 +43,7 @@ export const GuideSkintCustomComponent: mc.BlockCustomComponent = {
       return;
     }
 
-    if (event.dimension.id != mc.MinecraftDimensionTypes.overworld) {
+    if (event.dimension.id != MinecraftDimensionTypes.Overworld) {
       event.player!.sendMessage(
         `[!] Путеводный Скинт можно активировать только в Верхнем мире.`
       );

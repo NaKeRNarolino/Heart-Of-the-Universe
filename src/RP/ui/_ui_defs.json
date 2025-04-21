@@ -3,6 +3,7 @@
   "ui_defs": [
     "ui/sparks.json",
     "ui/guide_skint_ui.json",
+    "ui/bars.json",
 
     "ui/achievement_screen.json",
     "ui/add_external_server_screen.json",

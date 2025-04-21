@@ -450,6 +450,8 @@ export class EntityCustomComponentRegistry {
 
 ///
 
-new EntityCustomComponentRegistry()
-  .registerCustomComponent(PlayerHoldSwordCustomComponent)
-  .registerCustomComponent(GuideSkintEntityCustomComponent);
+mc.world.afterEvents.worldLoad.subscribe(() => {
+  new EntityCustomComponentRegistry()
+    .registerCustomComponent(PlayerHoldSwordCustomComponent)
+    .registerCustomComponent(GuideSkintEntityCustomComponent);
+});

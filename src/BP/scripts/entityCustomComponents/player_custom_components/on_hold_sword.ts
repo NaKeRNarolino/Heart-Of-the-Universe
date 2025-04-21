@@ -3,6 +3,7 @@ import * as mc from "@minecraft/server";
 import * as ui from "@minecraft/server-ui";
 import { utils } from "../../utils/utils";
 import { PlayerUIManager } from "../../utils/player_ui_manager";
+import { namespace } from "../../utils/namespace";
 
 export const PlayerHoldSwordCustomComponent: EntityCustomComponent = {
   filter: {
@@ -21,10 +22,14 @@ export const PlayerHoldSwordCustomComponent: EntityCustomComponent = {
 
     if (item == undefined) {
       player.camera.clear();
+      player.setProperty(namespace.namespaced("holding_sword"), "NONE");
       return;
     }
 
     if (item.typeId.includes("naker_hotu:") && item.typeId.includes("sword")) {
+      if (item.typeId.includes("long")) {
+        player.setProperty(namespace.namespaced("holding_sword"), "LONG");
+      }
       player.camera.setCamera("minecraft:free", {
         location: utils.calculateLocalCoordinates(player, {
           x: 1,
@@ -39,6 +44,7 @@ export const PlayerHoldSwordCustomComponent: EntityCustomComponent = {
       });
     } else {
       player.camera.clear();
+      player.setProperty(namespace.namespaced("holding_sword"), "NONE");
     }
   },
 };

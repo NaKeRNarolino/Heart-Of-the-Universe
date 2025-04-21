@@ -1,0 +1,16 @@
+use native fn define#"hotu~>defineItem";
+
+layout ItemSettings {
+    id: str,
+    path: str,
+    nameRu: str,
+    nameEn: str,
+    stackSize: num = 1,
+};
+
+define(ItemSettings {
+    id = "amulet_crow_feather",
+    path = "amulet_crow_feather.png",
+    nameRu = "Амулет Пера Ворона",
+    nameEn = "Crow Feather Amulet",
+});

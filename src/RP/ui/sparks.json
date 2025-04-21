@@ -6,23 +6,38 @@
     "anchor_from": "bottom_right",
     "anchor_to": "bottom_right",
     "size": ["55px", "20px"],
+    "$amount": "#x_t",
     "controls": [
       {
         "sparks": {
           "type": "label",
-          "text": "#text",
+          "text": "#x_t",
+          "layer": 2,
+          "offset": ["4px", "-50px"],
+          "property_bag": {
+            "#split_sep": ",",
+            "#split_flag": "s:"
+          },
           "bindings": [
             {
               "binding_name": "#hud_title_text_string"
             },
             {
               "binding_type": "view",
-              "source_property_name": "(#hud_title_text_string - 'naker_sparks')",
-              "target_property_name": "#text"
+              "source_property_name": "(#hud_title_text_string - #split_flag)",
+              "target_property_name": "#x"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('§z' + (#hud_title_text_string - #split_flag))",
+              "target_property_name": "#x_t"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#hud_title_text_string - (#split_flag + #x + #split_sep))",
+              "target_property_name": "#y"
             }
-          ],
-          "layer": 2,
-          "offset": ["4px", "-50px"]
+          ]
         }
       },
       {

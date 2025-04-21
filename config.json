@@ -1,50 +1,57 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.1.json",
-    "author": "cmca",
-    "name": "Heart Of the Universe",
-    "packs": {
-        "behaviorPack": "./src/BP",
-        "resourcePack": "./src/RP"
+  "$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.1.json",
+  "author": "cmca",
+  "name": "Heart Of the Universe",
+  "packs": {
+    "behaviorPack": "./src/BP",
+    "resourcePack": "./src/RP"
+  },
+  "regolith": {
+    "dataPath": "./src/data",
+    "filterDefinitions": {
+      "cmcaBuild": {
+        "runWith": "shell",
+        "command": "cmca-build.cmd"
+      },
+      "hotuFilters": {
+        "runWith": "exe",
+        "exe": "./filters/hotu_filters.exe"
+      }
     },
-    "regolith": {
-        "dataPath": "./src/data",
-        "filterDefinitions": {
-            "cmcaBuild": {
-                "runWith": "shell",
-                "command": "cmca-build.cmd"
+    "profiles": {
+      "default": {
+        "filters": [
+          {
+            "filter": "hotuFilters"
+          },
+          {
+            "filter": "cmcaBuild",
+            "settings": {
+              "\"envMode\"": "\"dev\"",
+              "\"bundlerType\"": "\"esbuild\"",
+              "\"ts\"": "\"true\""
             }
-        },
-        "profiles": {
-            "default": {
-                "filters": [
-                    {
-                        "filter": "cmcaBuild",
-                        "settings": {
-                            "\"envMode\"": "\"dev\"",
-                            "\"bundlerType\"": "\"esbuild\"",
-                            "\"ts\"": "\"true\""
-                        }
-                    }
-                ],
-                "export": {
-                    "target": "development"
-                }
-            },
-            "export": {
-                "filters": [
-                    {
-                        "filter": "cmcaBuild",
-                        "settings": {
-                            "\"envMode\"": "\"release\"",
-                            "\"bundlerType\"": "\"esbuild\"",
-                            "\"ts\"": "\"true\""
-                        }
-                    }
-                ],
-                "export": {
-                    "target": "local"
-                }
-            }
+          }
+        ],
+        "export": {
+          "target": "development"
         }
+      },
+      "export": {
+        "filters": [
+          {
+            "filter": "cmcaBuild",
+            "settings": {
+              "\"envMode\"": "\"release\"",
+              "\"bundlerType\"": "\"esbuild\"",
+              "\"ts\"": "\"true\""
+            }
+          }
+        ],
+        "export": {
+          "target": "local"
+        }
+      }
     }
+  }
 }
