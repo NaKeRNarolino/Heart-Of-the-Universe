@@ -5,6 +5,7 @@ import "./commands/mod";
 import "./entityCustomComponents/mod";
 import "./items/mod";
 import "./init";
+import "./stamina/mod";
 
 import * as mc from "@minecraft/server";
 import * as items from "./items/mod";

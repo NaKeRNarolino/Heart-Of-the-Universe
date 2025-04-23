@@ -13,12 +13,27 @@
             }
           },
           {
-            "health@hotu_bars.bar": {
+            "health@hotu_bars.health_bar": {
               "$fill_texture": "textures/gui/nakern_hotu/bars/health",
               "$icon_texture": "textures/gui/nakern_hotu/bars/heart",
               "anchor_from": "bottom_middle",
               "anchor_to": "bottom_middle",
-              "offset": [0, "-10%"],
+              "offset": [0, "-35px"],
+              "bindings": [
+                {
+                  "binding_name": "#show_survival_ui",
+                  "binding_name_override": "#visible"
+                }
+              ]
+            }
+          },
+          {
+            "stamina@hotu_bars.stamina_bar": {
+              "$fill_texture": "textures/gui/nakern_hotu/bars/stamina_fill",
+              "$icon_texture": "textures/gui/nakern_hotu/bars/stamina",
+              "anchor_from": "bottom_middle",
+              "anchor_to": "bottom_middle",
+              "offset": [0, "-45px"],
               "bindings": [
                 {
                   "binding_name": "#show_survival_ui",
