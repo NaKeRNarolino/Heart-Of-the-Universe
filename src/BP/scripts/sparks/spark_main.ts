@@ -101,7 +101,7 @@ export function summonSparks(
     let collectedAmount = 0;
     const run = mc.system.runInterval(() => {
       for (const spark of sparks) {
-        if (!spark.isValid()) continue;
+        if (!spark.isValid) continue;
         const player = spark.dimension.getPlayers({
           closest: 1,
           location: spark.location,
@@ -135,7 +135,7 @@ export function summonSparks(
         for (let i = 0; i < points.length; i++) {
           const point = points[i];
           mc.system.runTimeout(() => {
-            if (!spark.isValid()) return;
+            if (!spark.isValid) return;
             spark.teleport(point);
             if (
               Vector3Utils.distance(
