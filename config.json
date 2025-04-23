@@ -40,6 +40,9 @@
       "export": {
         "filters": [
           {
+            "filter": "hotuFilters"
+          },
+          {
             "filter": "cmcaBuild",
             "settings": {
               "\"envMode\"": "\"release\"",

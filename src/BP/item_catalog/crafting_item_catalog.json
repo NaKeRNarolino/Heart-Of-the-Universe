@@ -10,7 +10,11 @@
               "icon": "naker_hotu:guide_skint",
               "name": "naker_hotu:item_group"
             },
-            "items": ["naker_hotu:guide_skint", "naker_hotu:long_rusty_sword"]
+            "items": [
+              "naker_hotu:guide_skint",
+              "naker_hotu:long_rusty_sword",
+              "naker_hotu:health_vial_3"
+            ]
           }
         ]
       }
