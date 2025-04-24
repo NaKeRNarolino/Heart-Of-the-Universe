@@ -3,6 +3,7 @@ import * as mc from "@minecraft/server";
 import { namespace } from "../../utils/namespace";
 import { uiManager, UIManager } from "@minecraft/server-ui";
 import { PlayerUIManager } from "../../utils/player_ui_manager";
+import { utils } from "../../utils/utils";
 
 Object.defineProperty(mc.ItemStack.prototype, "vialLevel", {
   get(): number {
@@ -30,8 +31,13 @@ export const HealthVialComponent: mc.ItemCustomComponent = {
 
     const level = item.vialLevel;
     const uiManager = new PlayerUIManager(player);
+    const slot = player.selectedSlotIndex;
 
     uiManager.set(true);
+
+    const mvm = new mc.MolangVariableMap();
+
+    player.playAnimation("animation.naker_hotu.use_vial");
 
     player.inputPermissions.setPermissionCategory(
       mc.InputPermissionCategory.Camera,
@@ -42,18 +48,38 @@ export const HealthVialComponent: mc.ItemCustomComponent = {
       false
     );
 
-    player.camera.setCamera("minecraft:free", {
-      location: Vector3Utils.add(player.location, { x: 5, y: 5, z: 5 }),
-      facingLocation: player.getHeadLocation(),
-      easeOptions: {
-        easeTime: 0,
-        easeType: mc.EasingType.InOutSine,
+    player.camera.fade({
+      fadeTime: {
+        fadeInTime: 0,
+        fadeOutTime: 0.05,
+        holdTime: 0,
+      },
+      fadeColor: {
+        red: 0,
+        green: 0,
+        blue: 0,
       },
     });
 
+    player.camera.setCamera("minecraft:free", {
+      location: Vector3Utils.add(player.location, { x: 5, y: 5, z: 5 }),
+      facingLocation: player.getHeadLocation(),
+    });
+
+    mvm.setFloat("variable.rotation_index", 0);
+
     player.dimension.spawnParticle(
       namespace.namespaced("start_use_health_vial"),
-      player.location
+      player.location,
+      mvm
+    );
+
+    mvm.setFloat("variable.rotation_index", 0.5);
+
+    player.dimension.spawnParticle(
+      namespace.namespaced("start_use_health_vial"),
+      player.location,
+      mvm
     );
 
     await mc.system.waitTicks(60);
@@ -63,6 +89,9 @@ export const HealthVialComponent: mc.ItemCustomComponent = {
       player.location
     );
 
+    const health = player.getComponent("health")!;
+    health.setCurrentValue(health.currentValue + 5);
+
     player.inputPermissions.setPermissionCategory(
       mc.InputPermissionCategory.Camera,
       true
@@ -71,6 +100,12 @@ export const HealthVialComponent: mc.ItemCustomComponent = {
       mc.InputPermissionCategory.Movement,
       true
     );
+
+    const newItem = new mc.ItemStack(
+      namespace.namespaced(`health_vial_${level - 1}`)
+    );
+
+    player.getComponent("inventory")!.container.setItem(slot, newItem);
 
     await mc.system.waitTicks(2);
 
