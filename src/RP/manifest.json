@@ -5,7 +5,7 @@
     "description": "Heart Of the Universe",
     "min_engine_version": [1, 19, 60],
     "uuid": "65988d66-0f77-4b92-af18-dd708d9fa3f7",
-    "version": [0, 1, 2]
+    "version": [0, 1, 5]
   },
   "modules": [
     {
