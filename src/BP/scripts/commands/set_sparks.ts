@@ -27,3 +27,95 @@ mc.world.beforeEvents.chatSend.subscribe((data) => {
     });
   }
 });
+
+function sparksCommand(
+  origin: mc.CustomCommandOrigin,
+  players: mc.Player[],
+  action: string,
+  amount?: number
+): mc.CustomCommandResult {
+  if (action == "set") {
+    if (amount == undefined) {
+      return {
+        status: mc.CustomCommandStatus.Failure,
+        message: "Для под-комманды `set` обязателен параметр `amount`.",
+      };
+    }
+
+    if (amount < 0) {
+      return {
+        status: mc.CustomCommandStatus.Failure,
+        message: "Количество спарков должно быть больше или равно нулю.",
+      };
+    }
+
+    const playerNames = players.map((v) => v.name);
+
+    for (const player of players) {
+      const manager = new SparkManager(player);
+
+      manager.set(amount);
+    }
+
+    return {
+      status: mc.CustomCommandStatus.Success,
+      message: `Успешно установлено количество спарков ${amount} для игроков: ${playerNames.join(
+        ", "
+      )}`,
+    };
+  } else {
+    if (amount != undefined) {
+      return {
+        status: mc.CustomCommandStatus.Failure,
+        message: "Для под-комманды `get` не требуется параметр `amount`.",
+      };
+    }
+
+    let amounts: string[] = [""];
+
+    for (const player of players) {
+      const manager = new SparkManager(player);
+
+      const v = manager.get();
+
+      amounts.push(`${player.name}: ${v}, `);
+    }
+
+    return {
+      status: mc.CustomCommandStatus.Success,
+      message: `Успешно получены данные о количестве для игроков: ${amounts.join(
+        ", "
+      )}`,
+    };
+  }
+}
+
+export function register(registry: mc.CustomCommandRegistry) {
+  registry.registerEnum(namespace.namespaced("spark_action"), ["get", "set"]);
+
+  registry.registerCommand(
+    {
+      name: namespace.namespaced("sparks"),
+      permissionLevel: mc.CommandPermissionLevel.GameDirectors,
+      description:
+        "Управление количеством спарков у игрока. Для операции `set` параметр `amount` обязателен.",
+      mandatoryParameters: [
+        {
+          type: mc.CustomCommandParamType.PlayerSelector,
+          name: "player",
+        },
+        {
+          type: mc.CustomCommandParamType.Enum,
+          name: namespace.namespaced("spark_action"),
+        },
+      ],
+      optionalParameters: [
+        {
+          name: "amount",
+          type: mc.CustomCommandParamType.Integer,
+        },
+      ],
+    },
+    sparksCommand
+  );
+}

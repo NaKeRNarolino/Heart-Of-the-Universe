@@ -1,11 +1,11 @@
 {
-  "format_version": "1.21.50",
+  "format_version": "1.21.80",
   "minecraft:block": {
     "description": {
       "identifier": "naker_hotu:guide_skint"
     },
     "components": {
-      "minecraft:custom_components": ["naker_hotu:guide_skint"],
+      "naker_hotu:guide_skint": {},
       "minecraft:material_instances": {
         "*": {
           "texture": "naker_hotu:empty",

@@ -13,7 +13,7 @@ import { namespace } from "../utils/namespace";
 function calculatePointsAlongLine(
   locationA: mc.Vector3,
   locationB: mc.Vector3,
-  numberOfPoints: number
+  numberOfPoints: number,
 ): mc.Vector3[] {
   const points: mc.Vector3[] = [];
   for (let i = 0; i <= numberOfPoints; i++) {
@@ -75,7 +75,7 @@ export function summonSparks(
   amount: number,
   radius: number,
   onGrabSingle: (value: number, player: mc.Player) => void,
-  valueFromOne: number = 1
+  valueFromOne: number = 1,
 ) {
   const count = amount / valueFromOne;
   const summonLocation = Vector3Utils.add(location, { x: 0, y: 1.5, z: 0 });
@@ -90,7 +90,7 @@ export function summonSparks(
 
     const spark = dimension.spawnEntity(
       namespace.namespaced("spark"),
-      summonLocation
+      summonLocation,
     );
     spark.applyImpulse({ x: offsetX, y: offsetY / 5, z: offsetZ });
     sparks.push(spark);
@@ -118,7 +118,7 @@ export function summonSparks(
         const points = calculatePointsAlongLine(
           spark.location,
           targetLocation,
-          Vector3Utils.distance(spark.location, targetLocation) * 10
+          Vector3Utils.distance(spark.location, targetLocation) * 10,
         );
         // const points = generateCurve(
         //   [
@@ -144,7 +144,7 @@ export function summonSparks(
                   y: 1.15,
                   z: 0,
                 }),
-                spark.location
+                spark.location,
               ) < 0.05
             ) {
               collectedAmount++;
@@ -173,7 +173,7 @@ mc.system.afterEvents.scriptEventReceive.subscribe((data) => {
       3,
       (v) => {
         // console.warn("Grabbed", v);
-      }
+      },
     );
   }
 });

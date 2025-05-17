@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.50",
+  "format_version": "1.21.80",
   "minecraft:item": {
     "description": {
       "identifier": "naker_hotu:health_vial_2"
@@ -7,7 +7,7 @@
     "components": {
       "minecraft:icon": "naker_hotu:health_vial_2",
       "minecraft:max_stack_size": 1,
-      "minecraft:custom_components": ["naker_hotu:health_vial"]
+      "naker_hotu:health_vial": {}
     }
   }
 }

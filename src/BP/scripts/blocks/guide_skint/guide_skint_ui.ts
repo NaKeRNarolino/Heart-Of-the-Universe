@@ -85,11 +85,11 @@ export class GuideSkintManager {
           );
           player.inputPermissions.setPermissionCategory(
             mc.InputPermissionCategory.Movement,
-            false
+            true
           );
           player.inputPermissions.setPermissionCategory(
             mc.InputPermissionCategory.Camera,
-            false
+            true
           );
           player.onScreenDisplay.resetHudElements();
           player.camera.clear();

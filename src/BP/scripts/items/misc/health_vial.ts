@@ -27,6 +27,12 @@ export const HealthVialComponent: mc.ItemCustomComponent = {
   onUse: async (data) => {
     const { itemStack: item, source: player } = data;
 
+    if (
+      player.getDynamicProperty(namespace.namespaced("use_health_vial")) == true
+    ) {
+      return;
+    }
+
     if (item == undefined) return;
 
     const level = item.vialLevel;
@@ -34,6 +40,7 @@ export const HealthVialComponent: mc.ItemCustomComponent = {
     const slot = player.selectedSlotIndex;
 
     uiManager.set(true);
+    player.setDynamicProperty(namespace.namespaced("use_health_vial"), true);
 
     const mvm = new mc.MolangVariableMap();
 
@@ -112,5 +119,7 @@ export const HealthVialComponent: mc.ItemCustomComponent = {
     player.camera.clear();
 
     uiManager.set(false);
+
+    player.setDynamicProperty(namespace.namespaced("use_health_vial"), false);
   },
 };
