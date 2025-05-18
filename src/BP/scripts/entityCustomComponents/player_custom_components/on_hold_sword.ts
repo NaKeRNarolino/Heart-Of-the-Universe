@@ -4,6 +4,7 @@ import * as ui from "@minecraft/server-ui";
 import { utils } from "../../utils/utils";
 import { PlayerUIManager } from "../../utils/player_ui_manager";
 import { namespace } from "../../utils/namespace";
+import { Vector3Builder, Vector3Utils } from "@minecraft/math";
 
 export const PlayerHoldSwordCustomComponent: EntityCustomComponent = {
   filter: {
@@ -30,17 +31,14 @@ export const PlayerHoldSwordCustomComponent: EntityCustomComponent = {
       if (item.typeId.includes("long")) {
         player.setProperty(namespace.namespaced("holding_sword"), "LONG");
       }
+
       player.camera.setCamera("minecraft:free", {
-        location: utils.calculateLocalCoordinates(player, {
-          x: 1,
-          y: 0,
-          z: -3,
-        }),
+        location: Vector3Utils.add(player.location, { x: 5, y: 9, z: 5 }),
         easeOptions: {
           easeTime: 0.25,
           easeType: mc.EasingType.Linear,
         },
-        rotation: player.getRotation(),
+        facingEntity: player,
       });
     } else {
       player.camera.clear();

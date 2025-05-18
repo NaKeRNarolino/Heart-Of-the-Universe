@@ -17,7 +17,7 @@ mc.world.afterEvents.entityDie.subscribe((data) => {
   summonSparks(
     data.deadEntity.dimension,
     location,
-    Math.min(3, Math.floor(Math.random() * hp)),
+    Math.max(3, Math.floor(Math.random() * hp)),
     2,
     grabSparks
   );

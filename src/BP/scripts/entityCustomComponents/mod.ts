@@ -116,11 +116,11 @@ export class EntityCustomComponentRegistry {
   public registerCustomComponent(
     component: EntityCustomComponent
   ): EntityCustomComponentRegistry {
-    const err = this.handleForErrorsInCustomComponent(component);
-    if (err) {
-      console.error(err);
-      return this;
-    }
+    // const err = this.handleForErrorsInCustomComponent(component);
+    // if (err) {
+    // console.error(err);
+    // return this;
+    // }
 
     this.entityCustomComponents.push(component);
     this.init();
@@ -149,7 +149,11 @@ export class EntityCustomComponentRegistry {
     component: EntityCustomComponent
   ): Error | undefined {
     for (const typeId of component.filter.types ?? []) {
-      if (!mc.EntityTypes.get(typeId)) {
+      if (
+        !mc.EntityTypes.get({
+          id: typeId,
+        })
+      ) {
         return new Error(
           `Invalid typeId "${typeId}" is in the \`types\` field. The custom component will not be registered.`
         );

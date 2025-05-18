@@ -60,7 +60,7 @@ export class GuideSkintManager {
           true
         );
         player.camera.clear();
-        player.onScreenDisplay.resetHudElements();
+        player.onScreenDisplay.resetHudElementsVisibility();
         uiManager.set(false);
         return;
       }
@@ -91,7 +91,7 @@ export class GuideSkintManager {
             mc.InputPermissionCategory.Camera,
             true
           );
-          player.onScreenDisplay.resetHudElements();
+          player.onScreenDisplay.resetHudElementsVisibility();
           player.camera.clear();
           uiManager.set(false);
           return;
@@ -111,7 +111,7 @@ export class GuideSkintManager {
           mc.InputPermissionCategory.Camera,
           true
         );
-        player.onScreenDisplay.resetHudElements();
+        player.onScreenDisplay.resetHudElementsVisibility();
         player.camera.clear();
         uiManager.set(false);
       }

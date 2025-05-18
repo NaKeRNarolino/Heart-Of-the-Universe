@@ -3,9 +3,9 @@
   "header": {
     "name": "Heart Of the Universe",
     "description": "Heart Of the Universe",
-    "min_engine_version": [1, 19, 60],
+    "min_engine_version": [1, 21, 70],
     "uuid": "65988d66-0f77-4b92-af18-dd708d9fa3f7",
-    "version": [0, 1, 6]
+    "version": [0, 1, 7]
   },
   "modules": [
     {
@@ -17,7 +17,7 @@
   "dependencies": [
     {
       "uuid": "00512319-3de3-415a-a0e0-86aee8576d21",
-      "version": [0, 1, 2]
+      "version": [0, 1, 7]
     }
   ]
 }
